@@ -42,7 +42,7 @@
               midi: new Midi(new MidiInfo()),
               audioURL: "http://example.com",
             });
-          }, 2000);
+          }, 1000);
         });
       }}>Transition</button
     > -->

@@ -50,7 +50,7 @@
       return undefined;
     }
 
-    space = new CanvasSpace(canvas).setup({ bgcolor: "#292c42" });
+    space = new CanvasSpace(canvas).setup({ bgcolor: "transparent" });
 
     renderControls = new RenderControls((time, frameTime) => {
       if (time > audioDurationSeconds * 1000) {

@@ -109,15 +109,16 @@ function animateNotesBackground(
     const height = space.height / noteRange;
 
     for (let i = 0; i < noteRange; i++) {
-      if (i % 2 === 0) {
-        continue;
-      }
-
       let x = space.center.x;
       let y = height * (i + 0.5);
 
       let bar = Rectangle.fromCenter([x, y], space.width, height);
-      form.fill("#23283e").rect(bar);
+
+      if (i % 2 === 0) {
+        form.fill("#292c42").rect(bar);
+      } else {
+        form.fill("#23283e").rect(bar);
+      }
     }
 
     let centerLine = Rectangle.fromCenter(space.center, 1, space.height);
