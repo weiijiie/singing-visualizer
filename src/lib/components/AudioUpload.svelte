@@ -105,9 +105,9 @@
         name="audio"
         accept=".wav,.mp3,.ogg"
         on:change={handleFileUploaded}
-        class="ml-36 -mr-6 block w-full text-secondary
-      file:mr-4 file:py-2 file:px-4 file:bg-secondary file:rounded-full file:border-0
-      file:font-semibold file:text-secondary-content hover:file:bg-secondary-focus"
+        class="block text-secondary
+               file:mx-4 file:py-2 file:px-4 file:bg-secondary file:rounded-full file:border-0
+               file:font-semibold file:text-secondary-content hover:file:bg-secondary-focus"
       />
     </div>
 
