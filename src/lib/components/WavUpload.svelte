@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { AudioProcessingURL } from "../Constants";
+  import { AudioProcessingURL, MaxUploadSize } from "../Constants";
+  import { humanReadableFileSize } from "../HumanReadableFileSize";
   import {
     AudioProcessingResponse,
     midiFromMelody,
@@ -19,6 +20,15 @@
 
     const file = files[0];
     if (!file) {
+      return;
+    }
+
+    if (file.size > MaxUploadSize) {
+      const msg = `File too large, please upload a file smaller than ${humanReadableFileSize(
+        MaxUploadSize
+      )}`;
+
+      onAudioProcessingRequested(Promise.reject(msg));
       return;
     }
 
@@ -43,7 +53,6 @@
           }
 
           let json = (await res.json()) as AudioProcessingResponse;
-          console.log({ json });
 
           resolve({
             midi: midiFromMelody(json.melody),

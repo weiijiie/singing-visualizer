@@ -7,17 +7,21 @@
   import { Midi } from "./lib/Midi";
   import { Midi as MidiInfo } from "@tonejs/midi";
   import { fade } from "svelte/transition";
+  import BlobbyStuff from "./lib/components/BlobbyStuff.svelte";
 
   let vizInputPromise: Promise<VisualizationInput> | undefined;
 </script>
 
 <main
   data-theme="dracula"
-  class="relative h-screen w-screen flex flex-col items-center p-1 mx-auto overflow-hidden"
+  class="relative h-screen w-screen flex flex-col items-center p-0.5 pb-0 mx-auto overflow-hidden"
 >
   {#if vizInputPromise !== undefined}
     {#await vizInputPromise}
-      <LoadingAnimation />
+      <div class="grid h-full place-items-center">
+        <LoadingAnimation />
+        <BlobbyStuff />
+      </div>
     {:then vizInput}
       <SingingVisualizer
         {...vizInput}
@@ -26,8 +30,22 @@
         }}
       />
     {:catch error}
-      <div class="h-full flex items-center">
-        <p>error: {error}</p>
+      <div class="alert alert-error shadow-lg max-w-2xl mt-2">
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="stroke-current flex-shrink-0 h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+            /></svg
+          >
+          <span>An unexpected error occured! {error}</span>
+        </div>
       </div>
     {/await}
     <div />
@@ -42,7 +60,7 @@
               midi: new Midi(new MidiInfo()),
               audioURL: "http://example.com",
             });
-          }, 1000);
+          }, 15000);
         });
       }}>Transition</button
     > -->
@@ -50,11 +68,15 @@
       in:fade={{ duration: 800 }}
       class="absolute inset-0 h-full w-full grid place-items-center z-10 bg-base-100"
     >
-      <WavUpload
-        onAudioProcessingRequested={(promise) => {
-          vizInputPromise = promise;
-        }}
-      />
+      <div class="z-10">
+        <WavUpload
+          onAudioProcessingRequested={(promise) => {
+            vizInputPromise = promise;
+          }}
+        />
+      </div>
+
+      <BlobbyStuff />
 
       <label
         for="help-modal"
