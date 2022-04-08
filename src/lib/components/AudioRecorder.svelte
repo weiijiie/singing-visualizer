@@ -3,6 +3,7 @@
   import StopIcon from "./StopIcon.svelte";
   import UploadIcon from "./UploadIcon.svelte";
   import DeleteIcon from "./DeleteIcon.svelte";
+  import StopWatch from "./StopWatch.svelte";
   import { useAudioRecorder } from "../UseAudioRecorder";
 
   export let audiosStream: MediaStream;
@@ -18,6 +19,9 @@
 
 <div class="flex flex-col items-center gap-7">
   {#if $recorder.state === "recording"}
+    <p class="text-md text-gray-100 font-semibold mb-3">
+      <StopWatch />
+    </p>
     <button
       class="btn btn-secondary btn-circle grid place-items-center"
       on:click|preventDefault={() => stop()}

@@ -9,7 +9,6 @@
     VisualizationInput,
   } from "../Models";
   import AudioRecorder from "./AudioRecorder.svelte";
-  import RecordIcon from "./RecordIcon.svelte";
 
   export let onAudioProcessingRequested: (
     vizInput: Promise<VisualizationInput>
