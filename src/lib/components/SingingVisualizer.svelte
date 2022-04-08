@@ -102,8 +102,6 @@
     adjustingSlider = false;
   }
 
-  $: console.log({ canvasWidth });
-
   onMount(() => {
     initializeRender();
     if (space && audio) {

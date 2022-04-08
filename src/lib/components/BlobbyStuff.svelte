@@ -28,11 +28,11 @@
     }
 
     33% {
-      transform: translate(20px, -15px) scale(1.1);
+      transform: translate(25px, -15px) scale(1.1);
     }
 
     66% {
-      transform: translate(-15px, 10px) scale(0.9);
+      transform: translate(-15px, 15px) scale(0.9);
     }
 
     100% {

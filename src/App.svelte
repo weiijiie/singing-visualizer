@@ -1,6 +1,6 @@
 <script lang="ts">
   import SingingVisualizer from "./lib/components/SingingVisualizer.svelte";
-  import WavUpload from "./lib/components/WavUpload.svelte";
+  import AudioUpload from "./lib/components/AudioUpload.svelte";
   import type { VisualizationInput } from "./lib/Models";
   import HelpIcon from "./lib/components/HelpIcon.svelte";
   import LoadingAnimation from "./lib/components/LoadingAnimation.svelte";
@@ -68,8 +68,8 @@
       in:fade={{ duration: 800 }}
       class="absolute inset-0 h-full w-full grid place-items-center z-10 bg-base-100"
     >
-      <div class="z-10">
-        <WavUpload
+      <div class="w-full z-10">
+        <AudioUpload
           onAudioProcessingRequested={(promise) => {
             vizInputPromise = promise;
           }}
