@@ -24,6 +24,7 @@
     </p>
     <button
       class="btn btn-secondary btn-circle grid place-items-center"
+      aria-label="Stop recording"
       on:click|preventDefault={() => stop()}
     >
       <StopIcon />
@@ -38,6 +39,7 @@
     <div class="flex gap-6">
       <button
         class="btn btn-secondary btn-circle grid place-items-center"
+        aria-label="Upload recording"
         on:click|preventDefault={() => {
           onUploadRecording(recordingToFile());
         }}
@@ -46,6 +48,7 @@
       </button>
       <button
         class="btn btn-error btn-circle grid place-items-center"
+        aria-label="Discard recording"
         on:click|preventDefault={() => reset()}
       >
         <DeleteIcon />
@@ -55,6 +58,7 @@
     <p class="text-md text-gray-100 font-semibold mb-3">Record your voice</p>
     <button
       class="btn btn-secondary btn-circle grid place-items-center pt-1"
+      aria-label="Record"
       on:click|preventDefault={() => start()}
     >
       <RecordIcon />

@@ -80,7 +80,7 @@
 
 <section class="w-full flex flex-col items-center justify-center gap-8">
   <h1
-    class="text-4xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-tr from-primary to-accent"
+    class="py-1 text-4xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-tr from-primary to-accent"
   >
     Watch your voice
   </h1>

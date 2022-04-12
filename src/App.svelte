@@ -80,6 +80,7 @@
 
       <label
         for="help-modal"
+        aria-label="More info"
         class="absolute bottom-6 right-6 btn btn-secondary btn-circle btn-sm modal-button"
       >
         <HelpIcon />
